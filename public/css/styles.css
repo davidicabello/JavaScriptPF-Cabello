@@ -70,6 +70,9 @@ body .main_about-us {
   background-color: white;
   min-height: 500px;
 }
+body .main_about-us .col span {
+  color: #333;
+}
 body .main_about-us .col-lg-6 {
   color: #333;
   display: flex;

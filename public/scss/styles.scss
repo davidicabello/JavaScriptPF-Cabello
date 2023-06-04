@@ -76,6 +76,11 @@ body {
   .main_about-us {
     background-color: white;
     min-height: 500px;
+    .col {
+      span {
+        color: #333;
+      }
+    }
     .col-lg-6 {
       h5 {
         font-family: "Roboto Flex", sans-serif;
