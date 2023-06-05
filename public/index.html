@@ -11,7 +11,10 @@
     </title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
+    <!-- load all Font Awesome styles + include all v5 backwards compatibility by default -->
+    <link href="node_modules/@fortawesome/fontawesome-free/css/all.css" rel="stylesheet">
 </head>
 
 <body>
@@ -23,8 +26,7 @@
     <header>
         <div class="container-fluid">
             <nav class="navbar navbar-expand-lg">
-                <a class="navbar-brand" href="#" id="scrambletext" onmouseover="startScrambling()"
-                    onmouseout="stopScrambling()"> Umbral ®
+                <a class="navbar-brand" href="#" id="scrambletext"> Umbral ®
                 </a><img height="auto" width="30em" src="./images/icons8-formas-imposibles-100.png"
                     class="navbar-icon fill" alt="">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -34,21 +36,55 @@
                 <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Trabajos</a>
+                            <a class="nav-link" id="work-scrambler" href="#" onmouseover="startScrambling()"
+                                onmouseout="stopScrambling()">Trabajos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Agencia</a>
+                            <a class="nav-link" id="agencia-scrambler" href="#" onmouseover="startScramblingTwo()"
+                                onmouseout="stopScramblingTwo()">Agencia</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Servicios</a>
+                            <a class="nav-link" id="servicios-scrambler" href="#" onmouseover="startScramblingThree()"
+                                onmouseout="stopScramblingThree()">Servicios</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Clientes</a>
+                            <a class="nav-link" id="clientes-scrambler" href="#" onmouseover="startScramblingFour()"
+                                onmouseout="stopScramblingFour()">Clientes</a>
                         </li>
                     </ul>
                 </div>
-                <a class="navbar-brand" href="#">Hablemos!</a>
+                <a class="navbar-brand" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                    data-bs-whatever="@getbootstrap" href="#">Hablemos!</a>
             </nav>
+            <!-- MODAL EXAMPLE DE BOOTSTRAP MODIFICAR -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">New message</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="mb-3">
+                                    <label for="recipient-name" class="col-form-label">Recipient:</label>
+                                    <input type="text" class="form-control" id="recipient-name">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="message-text" class="col-form-label">Message:</label>
+                                    <textarea class="form-control" id="message-text"></textarea>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Send message</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- MODAL EXAMPLE DE BOOTSTRAP MODIFICAR -->
         </div>
     </header>
     <main>
@@ -77,15 +113,15 @@
         <section class="main_about-us d-flex justify-content-center align-items-center">
             <div class="container-lg">
                 <div class="row">
-                    <div class="col"><span>© 2021-2023</span></div>
+                    <div class="col" id="scrambletext-year"><span>© 2021-2023</span></div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-6">
+                    <div class="col-lg-6" data-aos="zoom-in" data-aos-duration="2000">
                         <div>
                             <h5>ESPECIALISTAS EN DISEÑO DE PÁGINAS WEB</h5>
                         </div>
                         <div>
-                            <h1>UMBRAL DISEÑO WEB</h1>
+                            <h2><span>UMBRAL</span> DISEÑO WEB</h2>
                         </div>
                         <div>
                             <p>En UMBRAL brindamos servicio de <strong>diseño web premium</strong>.
@@ -93,9 +129,12 @@
                                 especialistas en generar soluciones a medida y diseño personalizado para cada cliente.
                             </p>
                         </div>
-                        <div><button type="button" class="btn btn-outline-secondary">Consultanos</button></div>
+                        <div><button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap"
+                                href="#">Consultanos</button></div>
                     </div>
-                    <div class="col-lg-6"><img src="./images/diseno-web.webp" alt=""></div>
+                    <div class="col-lg-6" data-aos="zoom-in" data-aos-duration="2000"><img
+                            src="./images/diseno-web.webp" alt=""></div>
                 </div>
             </div>
         </section>
@@ -130,8 +169,219 @@
                 </div>
             </div>
         </section>
+        <section class="hero__works">
+            <div class="container-sm">
+                <div class="row">
+                    <div class="col-md-12 mt-5">
+                        <h2>ULTIMOS TRABAJOS</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <h6>QUEREMOS AYUDARTE A LOGRARLO</h6>
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col-md-4 mt-2"><a href=""><img src="./images/portfolio-tambotrading.webp" alt=""></a>
+                    </div>
+                    <div class="col-md-4 mt-2"><a href=""><img src="./images/portfolio-tambotrading.webp" alt=""></a>
+                    </div>
+                    <div class="col-md-4 mt-2"><a href=""><img src="./images/portfolio-tambotrading.webp" alt=""></a>
+                    </div>
+                </div>
+                <div class="row mt-5 ">
+                    <div class="col-md-4 mt-2"><a href=""><img src="./images/portfolio-tambotrading.webp" alt=""></a>
+                    </div>
+                    <div class="col-md-4 mt-2"><a href=""><img src="./images/portfolio-tambotrading.webp" alt=""></a>
+                    </div>
+                    <div class="col-md-4 mt-2"><a href=""><img src="./images/portfolio-tambotrading.webp" alt=""></a>
+                    </div>
+                </div>
+                <div class="row mt-5 ">
+                    <div class="col-md-4 mt-2"><a href=""><img src="./images/portfolio-tambotrading.webp" alt=""></a>
+                    </div>
+                    <div class="col-md-4 mt-2"><a href=""><img src="./images/portfolio-tambotrading.webp" alt=""></a>
+                    </div>
+                    <div class="col-md-4 mt-2"><a href=""><img src="./images/portfolio-tambotrading.webp" alt=""></a>
+                    </div>
+                </div>
+                <div class="row p-5">
+                    <div class="col-12 justify-content-center align-items-center d-flex"><button type="button"
+                            class="btn btn-secondary">Mas sobre nuestros trabajos</button></div>
+                </div>
+            </div>
+        </section>
+        <section class="hero__form mb-5 mt-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2>CONTACTANOS</h2>
+                        <form class="row g-3">
+                            <div class="col-md-6">
+                                <label for="inputEmail4" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="inputEmail4">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="inputPassword4" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="inputPassword4">
+                            </div>
+                            <div class="col-12">
+                                <label for="inputAddress" class="form-label">Address</label>
+                                <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                            </div>
+                            <div class="col-12">
+                                <label for="inputAddress2" class="form-label">Address 2</label>
+                                <input type="text" class="form-control" id="inputAddress2"
+                                    placeholder="Apartment, studio, or floor">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="inputCity" class="form-label">City</label>
+                                <input type="text" class="form-control" id="inputCity">
+                            </div>
+                            <div class="col-md-4">
+                                <label for="inputState" class="form-label">State</label>
+                                <select id="inputState" class="form-select">
+                                    <option selected>Choose...</option>
+                                    <option>...</option>
+                                </select>
+                            </div>
+                            <div class="col-md-2">
+                                <label for="inputZip" class="form-label">Zip</label>
+                                <input type="text" class="form-control" id="inputZip">
+                            </div>
+                            <div class="col-12">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="gridCheck">
+                                    <label class="form-check-label" for="gridCheck">
+                                        Check me out
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-primary">Sign in</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
-
+    <!-- Footer -->
+    <footer class="text-center text-lg-start bg-white text-muted">
+        <!-- Section: Social media -->
+        <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+            <!-- Left -->
+            <div class="me-5 d-none d-lg-block">
+                <span>Conectate con nosotros en nuestras redes sociales:</span>
+            </div>
+            <!-- Left -->
+            <!-- Right -->
+            <div>
+                <a href="" class="me-4 link-secondary">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="" class="me-4 link-secondary">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="" class="me-4 link-secondary">
+                    <i class="fab fa-google"></i>
+                </a>
+                <a href="" class="me-4 link-secondary">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="" class="me-4 link-secondary">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="" class="me-4 link-secondary">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+            <!-- Right -->
+        </section>
+        <!-- Section: Social media -->
+        <!-- Section: Links  -->
+        <section class="">
+            <div class="container text-center text-md-start mt-5">
+                <!-- Grid row -->
+                <div class="row mt-3">
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                        <!-- Content -->
+                        <h6 class="text-uppercase fw-bold mb-4">
+                            <img class="logo-footer" src="./images/umbral-logo-9D7585379F-seeklogo.com.png" alt="">
+                        </h6>
+                        <p>
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    </div>
+                    <!-- Grid column -->
+                    <!-- Grid column -->
+                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold mb-4">
+                            Productos
+                        </h6>
+                        <p>
+                            <a href="#!" class="text-reset">WebSites</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">E-Commerce</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Landing Page</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Otros</a>
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold mb-4">
+                            Links útiles
+                        </h6>
+                        <p>
+                            <a href="#!" class="text-reset">Precios</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Configuracion</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Ordenes</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Ayuda</a>
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+                    <!-- Grid column -->
+                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold mb-4">Contacto</h6>
+                        <p><i class="fas fa-home me-3 text-secondary"></i>Calle 18 e/999 y 888</p>
+                        <p>
+                            <i class="fas fa-envelope me-3 text-secondary"></i>
+                            umbralagency@gmail.com
+                        </p>
+                        <p><i class="fas fa-phone me-3 text-secondary"></i> + 54 221 440 9129</p>
+                        <p><i class="fas fa-print me-3 text-secondary"></i> + 54 221 440 9129</p>
+                    </div>
+                    <!-- Grid column -->
+                </div>
+                <!-- Grid row -->
+            </div>
+        </section>
+        <!-- Section: Links  -->
+        <!-- Copyright -->
+        <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.025);">
+            © 2023 Copyright:
+            <a class="text-reset fw-bold" href="https://github.com/davidicabello">umbral agency
+            </a>
+        </div>
+        <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
+    <script src="https://kit.fontawesome.com/6435488ffd.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
         crossorigin="anonymous"></script>
@@ -139,6 +389,8 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <script src="./js/scrambling-text.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
     <script src="./js/script.js"></script>
 </body>
 
