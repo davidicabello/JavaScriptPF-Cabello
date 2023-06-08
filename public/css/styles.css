@@ -164,4 +164,8 @@ body footer img {
   fill: #ed6866;
 }
 
+.navbar-toggler {
+  border: 2px solid white;
+}
+
 /*# sourceMappingURL=styles.css.map */
