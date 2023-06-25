@@ -18,6 +18,12 @@
 </head>
 
 <body>
+    <!-- WhatsApp BUTTON -->
+    <a href="https://api.whatsapp.com/send?phone=5492214409129&text=Hola%21%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20tus%20productos!."
+        class="float" target="_blank">
+        <i title="Click para enviar un mensaje!" class="fa fa-whatsapp my-float"></i>
+    </a>
+    <!-- WhatsApp BUTTON -->
     <video id="background-video" autoplay loop muted>
         <source
             src="https://player.vimeo.com/progressive_redirect/playback/792718372/rendition/720p/file.mp4?loc=external&signature=b0c78c25f2f55ae3f00dca4e07238b15d319799aae345f3fbfce5a8d56c6692e"
@@ -25,37 +31,6 @@
     </video>
     <header>
         <div class="container-fluid">
-            <!-- <nav class="navbar navbar-expand-lg">
-                <a class="navbar-brand" href="#" id="scrambletext"> Umbral ®
-                </a><img height="auto" width="30em" src="./images/icons8-formas-imposibles-100.png"
-                    class="navbar-icon fill" alt="">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" id="work-scrambler" href="#" onmouseover="startScrambling()"
-                                onmouseout="stopScrambling()">Trabajos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="agencia-scrambler" href="#" onmouseover="startScramblingTwo()"
-                                onmouseout="stopScramblingTwo()">Agencia</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="servicios-scrambler" href="#" onmouseover="startScramblingThree()"
-                                onmouseout="stopScramblingThree()">Servicios</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="clientes-scrambler" href="#" onmouseover="startScramblingFour()"
-                                onmouseout="stopScramblingFour()">Clientes</a>
-                        </li>
-                    </ul>
-                </div>
-                <a class="navbar-brand" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                    data-bs-whatever="@getbootstrap" href="#">Hablemos!</a>
-            </nav> -->
             <nav class="navbar navbar-expand-lg">
                 <a class="navbar-brand" href="#" id="scrambletext">Umbral ®</a>
                 <img height="auto" width="30em" src="./images/icons8-formas-imposibles-100.png" class="navbar-icon fill"
@@ -83,31 +58,31 @@
                 <a class="navbar-brand" data-bs-toggle="modal" data-bs-target="#exampleModal"
                     data-bs-whatever="@getbootstrap" href="#">Hablemos!</a>
             </nav>
-
             <!-- MODAL EXAMPLE DE BOOTSTRAP MODIFICAR -->
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                 aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalLabel">New message</h1>
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Mensaje</h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
                             <form>
                                 <div class="mb-3">
-                                    <label for="recipient-name" class="col-form-label">Recipient:</label>
+                                    <label for="recipient-name" class="col-form-label">Tu email:</label>
                                     <input type="text" class="form-control" id="recipient-name">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="message-text" class="col-form-label">Message:</label>
+                                    <label for="message-text" class="col-form-label">Mensaje:</label>
                                     <textarea class="form-control" id="message-text"></textarea>
                                 </div>
                             </form>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Send message</button>
+                            <button type="button" class="btn btn-primary" id="swallSuccess" data-bs-dismiss="modal">Send
+                                message</button>
                         </div>
                     </div>
                 </div>
@@ -243,55 +218,66 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h2>CONTACTANOS</h2>
-                        <form class="row g-3">
-                            <div class="col-md-6">
-                                <label for="inputEmail4" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="inputEmail4">
-                            </div>
-                            <div class="col-md-6">
-                                <label for="inputPassword4" class="form-label">Password</label>
-                                <input type="password" class="form-control" id="inputPassword4">
-                            </div>
-                            <div class="col-12">
-                                <label for="inputAddress" class="form-label">Address</label>
-                                <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-                            </div>
-                            <div class="col-12">
-                                <label for="inputAddress2" class="form-label">Address 2</label>
-                                <input type="text" class="form-control" id="inputAddress2"
-                                    placeholder="Apartment, studio, or floor">
-                            </div>
-                            <div class="col-md-6">
-                                <label for="inputCity" class="form-label">City</label>
-                                <input type="text" class="form-control" id="inputCity">
-                            </div>
-                            <div class="col-md-4">
-                                <label for="inputState" class="form-label">State</label>
-                                <select id="inputState" class="form-select">
-                                    <option selected>Choose...</option>
-                                    <option>...</option>
-                                </select>
-                            </div>
-                            <div class="col-md-2">
-                                <label for="inputZip" class="form-label">Zip</label>
-                                <input type="text" class="form-control" id="inputZip">
-                            </div>
-                            <div class="col-12">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="gridCheck">
-                                    <label class="form-check-label" for="gridCheck">
-                                        Check me out
-                                    </label>
+                        <div id="contacto" class="container-sm">
+                            <h2>Contactarte con nosotros</h2>
+                            <form class="needs-validation" onsubmit="return false" novalidate>
+                                <!-- Name input -->
+                                <div class="form-outline mb-4">
+                                    <label class="form-label" for="form4Example1">Nombre</label>
+                                    <input type="text" id="form4Example1" class="form-control" required />
+                                    <div class="valid-feedback">Correcto</div>
+                                    <div class="invalid-feedback">Por favor completa tu nombre</div>
                                 </div>
-                            </div>
-                            <div class="col-12">
-                                <button type="submit" class="btn btn-primary">Sign in</button>
-                            </div>
-                        </form>
+                                <!-- Email input -->
+                                <div class="form-outline mb-4">
+                                    <label class="form-label" for="form4Example2">Email</label>
+                                    <input type="email" id="form4Example2" class="form-control" required />
+                                    <div class="valid-feedback">Correcto</div>
+                                    <div class="invalid-feedback">Por favor completa tu email</div>
+                                </div>
+                                <!-- Message input -->
+                                <div class="form-outline mb-4">
+                                    <label class="form-label" for="form4Example3">Mensaje</label>
+                                    <textarea class="form-control" id="form4Example3" rows="4" required></textarea>
+                                    <div class="valid-feedback">Correcto</div>
+                                    <div class="invalid-feedback">Por favor completa tu mensaje</div>
+                                </div>
+                                <div class="col-12 d-flex">
+                                    <div class="form-check"><input type="checkbox" class="form-check-input" required
+                                            id="terms">
+                                        <label for="terms" class="form-check-label">Acepto los términos y
+                                            condiciones</label>
+                                        <div class="valid-feedback">Correcto</div>
+                                        <div class="invalid-feedback">Por favor acepta los términos y condiciones</div>
+                                    </div>
+                                </div>
+                                <!-- Submit button -->
+                                <button id="send_pdf" type="submit" class="btn btn-primary btn-block mb-4"
+                                    style="color: #000; background-color: #ffde59; border-color: #ffde59 ;"
+                                    onclick="swallSuccess()">Enviar</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
-            </div>
+                <div class="container-sm">
+                    <div class="row">
+                        <h2 class="my-3 d-flex flex-column justify-content-center align-items-center">Calcula la
+                            conversion
+                            de pesos a dólares</h2>
+                        <div class="col-md-12 d-flex flex-column justify-content-center align-items-center">
+                            <label for="presupuesto-input">Ingrese el valor en pesos argentinos</label>
+                            <input class="form-control" type="number" id="presupuesto-input"
+                                placeholder="Ingrese el presupuesto en pesos argentinos">
+                            <button class="btn btn-primary my-2" id="calcular-btn"
+                                style="color: #000; background-color: #ffde59; border-color: #ffde59 ;">Calcular</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 d-flex flex-column justify-content-center align-items-center">
+                            <div id="presupuesto"></div>
+                        </div>
+                    </div>
+                </div>
         </section>
     </main>
     <!-- Footer -->
@@ -400,6 +386,22 @@
             </div>
         </section>
         <!-- Section: Links  -->
+        <section class="advice">
+            <div class="container">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="advice-number"></div>
+                        <div class="advice-text">
+                            <div class="results"></div>
+                        </div>
+                        <img class="divider" src="images/pattern-divider-desktop.svg" alt="">
+                        <button type="button" title="roll-button" class="mainBtn" id="data">
+                            <img src="images/icon-dice.svg" alt="">
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
         <!-- Copyright -->
         <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.025);">
             © 2023 Copyright:
@@ -407,18 +409,20 @@
             </a>
         </div>
         <!-- Copyright -->
+
     </footer>
+
     <!-- Footer -->
     <script src="https://kit.fontawesome.com/6435488ffd.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
         crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <script src="./js/scrambling-text.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="./js/script.js"></script>
 </body>
 

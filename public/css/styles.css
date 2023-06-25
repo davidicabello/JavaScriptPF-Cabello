@@ -1,5 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Flex:wght@100;400;600;900&display=swap");
+:root {
+  /* ### Primary */
+  --Light-Cyan: hsl(193, 38%, 86%);
+  --Neon-Green: hsl(150, 100%, 66%);
+  /* ### Neutral */
+  --Grayish-Blue: hsl(217, 19%, 38%);
+  --Dark-Grayish-Blue: hsl(217, 19%, 24%);
+  --Dark-Blue: hsl(218, 23%, 16%);
+}
+
 *,
 *::before,
 *::after {
@@ -166,6 +176,109 @@ body footer img {
 
 .navbar-toggler {
   border: 2px solid white;
+}
+
+.advice {
+  @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@800&display=swap");
+  /* - Mobile: 375px
+  - Desktop: 1440px */
+  /* - Font size (quote): 28px */
+}
+.advice p {
+  color: var(--Neon-Green);
+  font-size: 10px;
+  letter-spacing: 3px;
+  margin-top: 20px;
+  opacity: 0.7;
+}
+.advice h1 {
+  font-size: 28px;
+  color: var(--Light-Cyan);
+}
+.advice .card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  border-radius: 10px;
+  background: var(--Dark-Grayish-Blue);
+  width: 100%;
+  padding: 20px;
+  box-shadow: 0px 0px 8px 1px var(--Dark-Blue);
+}
+.advice .advice-text {
+  padding: 30px 15px;
+}
+.advice i {
+  font-size: 1rem;
+}
+.advice .divider {
+  padding: 0 0 30px;
+  width: 80%;
+}
+.advice .mainBtn {
+  background: var(--Neon-Green);
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+  padding: 15px;
+  margin: 0 auto -50px;
+  border: 0;
+}
+.advice .mainBtn:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 30px 2px var(--Neon-Green);
+}
+.advice .attribution {
+  font-size: 11px;
+  text-align: center;
+}
+.advice footer {
+  color: white;
+  margin-top: 120px;
+}
+.advice .attribution a {
+  color: var(--Neon-Green);
+}
+@media only screen and (max-width: 375px) {
+  .advice .container {
+    max-width: 90%;
+  }
+  .advice .card {
+    width: 100%;
+  }
+  .advice .divider {
+    content: url(images/pattern-divider-mobile.svg);
+  }
+}
+
+.float {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 10px;
+  right: 5px;
+  background-color: #25d366;
+  color: #fff;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 30px;
+  box-shadow: 2px 2px 3px #999;
+  z-index: 100;
+}
+
+.float:hover {
+  color: #fff;
+  background-color: #25d370;
+}
+
+.my-float {
+  margin-top: 16px;
+}
+
+a:hover {
+  color: #3b625f;
 }
 
 /*# sourceMappingURL=styles.css.map */
