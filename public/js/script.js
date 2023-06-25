@@ -189,22 +189,50 @@ function swallSuccess() {
 $(document).ready(function () {
     $("#calcular-btn").click(function () {
         let presupuesto = $("#presupuesto-input").val();
-        $.ajax({
-            url: "https://api.bluelytics.com.ar/v2/latest",
-            method: "GET",
-        })
-            .done(function (data) {
-                let blueDolar = data.blue.value_buy;
-                let totalArs = presupuesto;
-                let totalUsd = totalArs / blueDolar;
-                $("#presupuesto").html("La conversión de : $" + totalArs + " pesos a dólares al cambio del dia es u$s " + totalUsd);
+        if (presupuesto != '') {
+            $.ajax({
+                url: "https://api.bluelytics.com.ar/v2/latest",
+                method: "GET",
+            })
+                .done(function (data) {
+                    let blueDolar = data.blue.value_buy;
+                    let totalArs = presupuesto;
+                    let totalUsd = totalArs / blueDolar;
+                    $("#presupuesto").html("La conversión de : $" + totalArs + " pesos a dólares al cambio del dia es u$s " + totalUsd);
 
-            });
+                });
+        } else {
+            return
+        }
     });
 });
 
 
+//CARDS
 
+class WorksCards {
+    constructor(image) {
+        this.imageSrc = image
+    };
+};
+
+const cardsHolder = document.querySelector('#cardsHolder');
+
+const workCardOne = new WorksCards('portfolio-tambotrading.webp');
+const workCardTwo = new WorksCards('portfolio-ewe.webp');
+const workCardThree = new WorksCards('ut-siei.webp');
+
+const cards = [workCardOne, workCardTwo, workCardThree]
+function createWorkCard(createCard) {
+    for (e of createCard) {
+        let card = document.createElement("div")
+        card.classList.add('col-md-4')
+        card.classList.add('mt-2')
+        card.innerHTML = `<a href=""><img src="./images/${e.imageSrc}" alt=""></a>`
+        cardsHolder.append(card)
+    }
+}
+createWorkCard(cards);
 AOS.init();
 
 
