@@ -211,16 +211,17 @@ $(document).ready(function () {
 //CARDS
 
 class WorksCards {
-    constructor(image) {
-        this.imageSrc = image
+    constructor(image, href) {
+        this.imageSrc = image,
+            this.href = href
     };
 };
 
 const cardsHolder = document.querySelector('#cardsHolder');
 
-const workCardOne = new WorksCards('portfolio-tambotrading.webp');
-const workCardTwo = new WorksCards('portfolio-ewe.webp');
-const workCardThree = new WorksCards('ut-siei.webp');
+const workCardOne = new WorksCards('portfolio-tambotrading.webp', '#');
+const workCardTwo = new WorksCards('portfolio-ewe.webp', '#');
+const workCardThree = new WorksCards('ut-siei.webp', '#');
 
 const cards = [workCardOne, workCardTwo, workCardThree]
 function createWorkCard(createCard) {
@@ -228,10 +229,93 @@ function createWorkCard(createCard) {
         let card = document.createElement("div")
         card.classList.add('col-md-4')
         card.classList.add('mt-2')
-        card.innerHTML = `<a href=""><img src="./images/${e.imageSrc}" alt=""></a>`
+        card.innerHTML = `<a href="${e.href}"><img src="./images/${e.imageSrc}" alt=""></a>`
         cardsHolder.append(card)
     }
 }
+
+//PRESUPUESTO
+let currentStep = 1;
+const steps = document.getElementsByClassName('step');
+
+function showStep(step) {
+    for (let i = 0; i < steps.length; i++) {
+        steps[i].style.display = 'none';
+    }
+    document.getElementById(`step${step}`).style.display = 'block';
+}
+
+function nextStep() {
+    if (currentStep < steps.length) {
+        currentStep++;
+        showStep(currentStep);
+    }
+}
+
+function saveBudget() {
+    // Obtener los valores 
+    const type = document.querySelector('input[name="type"]:checked').value;
+    const features = [];
+    const featureCheckboxes = document.querySelectorAll('input[name="features"]:checked');
+    featureCheckboxes.forEach(function (checkbox) {
+        features.push(checkbox.value);
+    });
+    const pages = parseInt(document.querySelector('input[name="pages"]').value);
+    const days = parseInt(document.querySelector('input[name="days"]').value);
+
+    // Crear un objeto 
+    const budget = {
+        type: type,
+        features: features,
+        pages: pages,
+        days: days
+    };
+
+    // Obtener los presupuestos anteriores l
+    let previousBudgets = localStorage.getItem('previousBudgets');
+    if (!previousBudgets) {
+        previousBudgets = [];
+    } else {
+        previousBudgets = JSON.parse(previousBudgets);
+    }
+
+    // Agregar el nuevo presupuesto a los anteriores
+    previousBudgets.push(budget);
+
+    // Guardar los presupuestos 
+    localStorage.setItem('previousBudgets', JSON.stringify(previousBudgets));
+
+    // Mostrar los presupuestos anteriores
+    loadPreviousBudgets();
+    showStep(1);
+}
+
+function loadPreviousBudgets() {
+    // Obtener los presupuestos anteriores 
+    const previousBudgets = localStorage.getItem('previousBudgets');
+    if (previousBudgets) {
+        const budgetList = document.getElementById('budgetList');
+        budgetList.innerHTML = '';
+
+        // Mostrar cada presupuesto anterior en una lista
+        JSON.parse(previousBudgets).forEach(function (budget) {
+            const listItem = document.createElement('li');
+            listItem.textContent = `Tipo de sitio web: ${budget.type}, Cantidad de páginas: ${budget.pages}, Precio total: $${calculateTotalPrice(budget)}`;
+            budgetList.appendChild(listItem);
+        });
+    }
+}
+
+function calculateTotalPrice(budget) {
+    // Calcular el precio total del presupuesto 
+    const basePrice = 50000;
+    const additionalFeaturesPrice = budget.features.length * 20000;
+    const pagesPrice = budget.pages * 10000;
+
+    return basePrice + additionalFeaturesPrice + pagesPrice;
+}
+loadPreviousBudgets();
+showStep(1);
 createWorkCard(cards);
 AOS.init();
 

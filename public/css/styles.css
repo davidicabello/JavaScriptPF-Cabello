@@ -292,4 +292,8 @@ a:hover {
   color: #3b625f;
 }
 
+.step {
+  display: none;
+}
+
 /*# sourceMappingURL=styles.css.map */
