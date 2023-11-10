@@ -314,6 +314,8 @@ function calculateTotalPrice(budget) {
 
     return basePrice + additionalFeaturesPrice + pagesPrice;
 }
+
+
 loadPreviousBudgets();
 showStep(1);
 createWorkCard(cards);
