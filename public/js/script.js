@@ -222,13 +222,15 @@ const cardsHolder = document.querySelector('#cardsHolder');
 const workCardOne = new WorksCards('portfolio-tambotrading.webp', '#');
 const workCardTwo = new WorksCards('portfolio-ewe.webp', '#');
 const workCardThree = new WorksCards('ut-siei.webp', '#');
-
-const cards = [workCardOne, workCardTwo, workCardThree]
+const workCardFour = new WorksCards('portfolio-tambotrading.webp', '#');
+const workCardFive = new WorksCards('portfolio-ewe.webp', '#');
+const workCardSix = new WorksCards('ut-siei.webp', '#');
+const cards = [workCardOne, workCardTwo, workCardThree, workCardFour, workCardFive, workCardSix]
 function createWorkCard(createCard) {
     for (e of createCard) {
         let card = document.createElement("div")
         card.classList.add('col-md-4')
-        card.classList.add('mt-2')
+        card.classList.add('mb-4')
         card.innerHTML = `<a href="${e.href}"><img src="./images/${e.imageSrc}" alt=""></a>`
         cardsHolder.append(card)
     }
@@ -316,8 +318,8 @@ function calculateTotalPrice(budget) {
 }
 
 
-loadPreviousBudgets();
-showStep(1);
+// loadPreviousBudgets();
+// showStep(1);
 createWorkCard(cards);
 AOS.init();
 
